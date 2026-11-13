@@ -1,0 +1,463 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}img{max-width:100%}</style><title>Family House Jobs</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: a kid-friendly hiring desk. Sticky header with two tabs; one centred column of numbered form sections; Boss Office is a list of application cards that expand into a decision panel. */
+:root{
+  --bg:#f3f7f8; --card:#ffffff; --ink:#1d2a5c; --muted:#5d6890; --line:#d9e2ea;
+  --teal:#1f9e8f; --teal-soft:#e2f4f1; --gold:#e3a21a; --gold-soft:#fff4dc;
+  --coral:#e2574c; --coral-soft:#fde8e6; --violet:#6d5bd0; --violet-soft:#ece9fb;
+  --ok:#2c9a55; --ok-soft:#e1f3e7; --head:#1a8a7d; --head-ink:#ffffff;
+  --display:'Fredoka',ui-rounded,'Segoe UI',system-ui,sans-serif;
+  --body:'Nunito',ui-rounded,'Segoe UI',system-ui,sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#10162b; --card:#18203a; --ink:#eef1ff; --muted:#a6afd3; --line:#2c3658;
+  --teal:#3cc4b3; --teal-soft:#173a3d; --gold:#f1b73c; --gold-soft:#3a3018;
+  --coral:#f0786e; --coral-soft:#40221f; --violet:#9d8ff0; --violet-soft:#2a2550;
+  --ok:#4cc27a; --ok-soft:#173826; --head:#12584f; --head-ink:#ffffff; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#10162b; --card:#18203a; --ink:#eef1ff; --muted:#a6afd3; --line:#2c3658;
+  --teal:#3cc4b3; --teal-soft:#173a3d; --gold:#f1b73c; --gold-soft:#3a3018;
+  --coral:#f0786e; --coral-soft:#40221f; --violet:#9d8ff0; --violet-soft:#2a2550;
+  --ok:#4cc27a; --ok-soft:#173826; --head:#12584f; --head-ink:#ffffff; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--head)}
+.wrap{max-width:860px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--head);color:var(--head-ink);box-shadow:0 2px 0 rgba(0,0,0,.08)}
+header .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:12px}
+.brand{display:flex;flex-direction:column;min-width:0;flex:1}
+.brand b{font-family:var(--display);font-size:clamp(22px,4vw,30px);letter-spacing:.5px;line-height:1.1}
+.brand span{font-size:12.5px;font-weight:700;opacity:.9}
+.tabs{display:flex;gap:6px;background:rgba(0,0,0,.14);padding:4px;border-radius:999px}
+.tab{border:0;background:transparent;color:#fff;font:700 15px var(--body);padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{background:#fff;color:#14675d}
+.tab:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,label.chip:focus-within{outline:3px solid var(--gold);outline-offset:2px}
+.count{display:inline-block;min-width:22px;padding:0 6px;margin-left:4px;border-radius:999px;background:var(--gold);color:#1d2a5c;font-size:12.5px;text-align:center}
+main{padding-block:20px 60px}
+.note{border-radius:var(--r);padding:10px 14px;font-weight:700;font-size:14px;margin-bottom:14px;background:var(--gold-soft);color:var(--ink);border:1.5px solid var(--gold)}
+.intro{display:flex;gap:14px;align-items:center;background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:16px}
+.intro .big{font-size:38px;line-height:1}
+.intro h1{font-family:var(--display);font-size:24px;margin:0;line-height:1.2;text-wrap:balance}
+.intro p{margin:2px 0 0;color:var(--muted);font-weight:600}
+form{display:flex;flex-direction:column;gap:16px}
+.sec{background:var(--card);border:2px solid var(--line);border-radius:var(--r);overflow:hidden}
+.sh{display:flex;align-items:center;gap:10px;background:var(--teal-soft);padding:10px 16px;border-bottom:2px solid var(--line)}
+.sh .n{width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;display:inline-flex;align-items:center;justify-content:center;font:700 15px var(--display);flex:none}
+.sh h2{font-family:var(--display);font-size:19px;margin:0;font-weight:600}
+.sb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.f{display:flex;flex-direction:column;gap:4px;min-width:0}
+.f > span{font-size:12.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=number],input[type=date],textarea,select{font:600 16px var(--body);color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:9px 12px;width:100%}
+textarea{min-height:70px;resize:vertical}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.8}
+.avatars{display:flex;flex-wrap:wrap;gap:8px}
+.avatars label{cursor:pointer}
+.avatars input{position:absolute;opacity:0;pointer-events:none}
+.avatars span{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;font-size:28px;background:var(--bg);border:2.5px solid var(--line);transition:transform .12s}
+.avatars input:checked + span{border-color:var(--teal);background:var(--teal-soft);transform:scale(1.08)}
+.avatars input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+label.chip{position:relative;cursor:pointer}
+label.chip input{position:absolute;opacity:0;pointer-events:none}
+label.chip span{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;border:2px solid var(--line);background:var(--bg);font-weight:700;font-size:14.5px;user-select:none}
+label.chip input:checked + span{background:var(--teal);border-color:var(--teal);color:#fff}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.jobs label{position:relative;cursor:pointer}
+.jobs input{position:absolute;opacity:0;pointer-events:none}
+.jobs span{display:flex;flex-direction:column;align-items:center;gap:2px;padding:12px 6px;border-radius:12px;border:2px solid var(--line);background:var(--bg);font-weight:800;font-size:14px;text-align:center}
+.jobs span i{font-style:normal;font-size:30px;line-height:1.1}
+.jobs span small{font-weight:600;font-size:11.5px;color:var(--muted)}
+.jobs input:checked + span{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 2px var(--teal) inset}
+.jobs input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+.q{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.q b{font-weight:800}
+.q input{max-width:160px}
+.draw-row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start}
+.pad{display:flex;flex-direction:column;gap:8px;flex:none;max-width:100%}
+canvas#pad{width:280px;max-width:100%;aspect-ratio:1;border:2.5px dashed var(--muted);border-radius:12px;background:#fff;touch-action:none;cursor:crosshair}
+.tools{display:flex;gap:6px;flex-wrap:wrap;align-items:center;max-width:280px}
+.sw{width:28px;height:28px;border-radius:50%;border:2.5px solid var(--card);box-shadow:0 0 0 2px var(--line);cursor:pointer;padding:0}
+.sw[aria-pressed="true"]{box-shadow:0 0 0 3px var(--ink)}
+.mini{border:2px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:5px 11px;font:700 13px var(--body);cursor:pointer}
+.mini[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.draw-fields{flex:1;min-width:220px;display:flex;flex-direction:column;gap:12px}
+.err{color:var(--coral);font-weight:800;min-height:1.2em}
+.send{align-self:center;border:0;background:var(--coral);color:#fff;font:600 21px var(--display);padding:14px 34px;border-radius:999px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.15)}
+.send:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.15)}
+.send[disabled]{opacity:.6;cursor:wait}
+.done{background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:30px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px}
+.done .big{font-size:60px;line-height:1}
+.done h2{font-family:var(--display);font-size:30px;margin:0}
+.done .no{font:700 26px var(--display);color:var(--teal);letter-spacing:1px}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn{border:2px solid var(--teal);background:var(--card);color:var(--teal);font:800 15px var(--body);padding:10px 18px;border-radius:999px;cursor:pointer}
+.btn.solid{background:var(--teal);color:#fff}
+/* Boss office */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+.stat{background:var(--card);border:2px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column}
+.stat b{font:700 26px var(--display);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:12.5px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.list{display:flex;flex-direction:column;gap:10px}
+.app{background:var(--card);border:2px solid var(--line);border-radius:var(--r);overflow:hidden}
+.app > button.head{all:unset;box-sizing:border-box;display:flex;gap:12px;align-items:center;width:100%;padding:12px 14px;cursor:pointer}
+.app > button.head:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.av{width:46px;height:46px;border-radius:50%;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:26px;flex:none}
+.who{flex:1;min-width:0}
+.who b{display:block;font:600 18px var(--display);overflow-wrap:anywhere}
+.who span{font-size:13.5px;font-weight:700;color:var(--muted)}
+.pill{font-size:12.5px;font-weight:800;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.st-new{background:var(--violet-soft);color:var(--violet)}
+.st-interview{background:var(--gold-soft);color:#9a6a00}
+:root[data-theme="dark"] .st-interview{color:var(--gold)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st-interview{color:var(--gold)}}
+.st-hired{background:var(--ok-soft);color:var(--ok)}
+.st-try{background:var(--coral-soft);color:var(--coral)}
+.detail{border-top:2px dashed var(--line);padding:14px;display:flex;flex-direction:column;gap:14px;position:relative}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px 16px}
+.kv div{min-width:0}
+.kv dt{font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.kv dd{margin:0;font-weight:700;overflow-wrap:anywhere}
+.ans{background:var(--bg);border-radius:10px;padding:10px 12px}
+.ans b{display:block;font-size:13px;color:var(--muted)}
+.ans p{margin:2px 0 0;font-weight:700;white-space:pre-wrap;overflow-wrap:anywhere}
+.drawing{width:180px;max-width:100%;border-radius:10px;border:2px solid var(--line);background:#fff}
+.decide{background:var(--gold-soft);border:2px solid var(--gold);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.decide h3{margin:0;font:600 17px var(--display)}
+.choices{display:flex;gap:8px;flex-wrap:wrap}
+.choice{border:2px solid var(--line);background:var(--card);color:var(--ink);font:800 14.5px var(--body);padding:8px 14px;border-radius:999px;cursor:pointer}
+.choice[aria-pressed="true"].c-hired{background:var(--ok);border-color:var(--ok);color:#fff}
+.choice[aria-pressed="true"].c-interview{background:var(--gold);border-color:var(--gold);color:#1d2a5c}
+.choice[aria-pressed="true"].c-try{background:var(--coral);border-color:var(--coral);color:#fff}
+.stamp{position:absolute;right:18px;top:16px;transform:rotate(-12deg);border:4px solid var(--ok);color:var(--ok);font:700 28px var(--display);padding:2px 14px;border-radius:10px;letter-spacing:3px;opacity:.85;pointer-events:none}
+.danger{border:2px solid var(--coral);background:transparent;color:var(--coral);font:800 13.5px var(--body);padding:7px 13px;border-radius:999px;cursor:pointer}
+.empty{background:var(--card);border:2px dashed var(--line);border-radius:var(--r);padding:30px 18px;text-align:center;color:var(--muted);font-weight:700}
+.empty .big{font-size:46px}
+.saved{font-weight:800;color:var(--ok);font-size:14px}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}.tabs{width:100%}.tab{flex:1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style></head><body>
+
+<header>
+  <div class="wrap">
+    <div class="brand"><b>Family House Jobs</b><span>Amin Airlines · Family House Restaurant · Family House Ice Cream · Home Metro</span></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="tab-apply" aria-selected="true">📝 Apply</button>
+      <button class="tab" role="tab" id="tab-boss" aria-selected="false">🔒 Boss Office <span class="count" id="boss-count">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="note" id="store-note" hidden></div>
+
+  <!-- APPLY -->
+  <section id="view-apply">
+    <div class="intro"><div class="big">🧑‍💼</div><div><h1>Apply for a job</h1><p>Fill in the form and press the big button. The boss will read it in the Boss Office!</p></div></div>
+    <form id="form" novalidate>
+      <div class="sec"><div class="sh"><span class="n">1</span><h2>About you</h2></div><div class="sb">
+        <div class="f"><span>Pick your face</span>
+          <div class="avatars" id="avatars"></div></div>
+        <div class="grid2">
+          <label class="f"><span>Full name *</span><input type="text" id="f-name" maxlength="40" placeholder="e.g. Amin"></label>
+          <label class="f"><span>Age</span><input type="number" id="f-age" min="1" max="120" placeholder="8"></label>
+          <label class="f"><span>Birthday</span><input type="date" id="f-bday"></label>
+          <label class="f"><span>Home city</span><input type="text" id="f-city" maxlength="40" placeholder="Doha"></label>
+          <label class="f"><span>Favourite colour</span><input type="text" id="f-colour" maxlength="30" placeholder="Blue"></label>
+          <label class="f"><span>3 words about me</span><input type="text" id="f-words" maxlength="60" placeholder="kind, fast, funny"></label>
+        </div>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">2</span><h2>Which job do you want? *</h2></div><div class="sb">
+        <div class="jobs" id="jobs"></div>
+        <label class="f"><span>Other job (optional)</span><input type="text" id="f-other" maxlength="40" placeholder="Write a different job"></label>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">3</span><h2>My skills</h2></div><div class="sb">
+        <div class="chips" id="skills"></div>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">4</span><h2>My experience</h2></div><div class="sb">
+        <div class="f"><span>Jobs I have done at home</span><div class="chips" id="exp"></div></div>
+        <label class="f"><span>My best job ever was</span><input type="text" id="f-best" maxlength="80" placeholder="Helping Dad wash the car"></label>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">5</span><h2>When can you work?</h2></div><div class="sb">
+        <div class="chips" id="days"></div>
+        <div class="chips" id="times"></div>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">6</span><h2>Hobbies and favourite things</h2></div><div class="sb"><div class="grid2">
+        <label class="f"><span>My hobbies</span><input type="text" id="f-hobbies" maxlength="60"></label>
+        <label class="f"><span>My favourite food</span><input type="text" id="f-food" maxlength="40"></label>
+        <label class="f"><span>My favourite game</span><input type="text" id="f-game" maxlength="40"></label>
+        <label class="f"><span>When I grow up I want to be</span><input type="text" id="f-grow" maxlength="40"></label>
+      </div></div></div>
+
+      <div class="sec"><div class="sh"><span class="n">7</span><h2>Interview questions</h2></div><div class="sb">
+        <label class="f"><span>Why do you want this job?</span><textarea id="f-why" maxlength="400"></textarea></label>
+        <label class="f"><span>What would you do if a customer is sad or angry?</span><textarea id="f-sad" maxlength="400"></textarea></label>
+        <label class="f"><span>What is your superpower at work? 🦸</span><input type="text" id="f-power" maxlength="80"></label>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">8</span><h2>Quick skills test 📝</h2></div><div class="sb">
+        <label class="q"><b>1.</b> A burger costs $5 and fries cost $3. Total: <input type="text" id="t1" maxlength="10" placeholder="$"></label>
+        <label class="q"><b>2.</b> A customer pays $20 for a $12 meal. Change: <input type="text" id="t2" maxlength="10" placeholder="$"></label>
+        <label class="q"><b>3.</b> Write "thank you" in another language: <input type="text" id="t3" maxlength="30"></label>
+        <label class="q"><b>4.</b> A plane takes off at 3:00 and flies for 2 hours. It lands at: <input type="text" id="t4" maxlength="10" placeholder="0:00"></label>
+      </div></div>
+
+      <div class="sec"><div class="sh"><span class="n">9</span><h2>Draw yourself in your work uniform</h2></div><div class="sb">
+        <div class="draw-row">
+          <div class="pad">
+            <canvas id="pad" width="320" height="320" aria-label="Drawing pad"></canvas>
+            <div class="tools" id="tools"></div>
+          </div>
+          <div class="draw-fields">
+            <label class="f"><span>My uniform colour</span><input type="text" id="f-uniform" maxlength="30"></label>
+            <label class="f"><span>My name badge says</span><input type="text" id="f-badge" maxlength="30"></label>
+            <label class="f"><span>Who says I am great? (a reference)</span><input type="text" id="f-ref" maxlength="40" placeholder="My mom"></label>
+            <div class="grid2">
+              <label class="f"><span>My signature</span><input type="text" id="f-sign" maxlength="40" placeholder="Type your name"></label>
+              <label class="f"><span>Date</span><input type="date" id="f-date"></label>
+            </div>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="err" id="err" role="alert"></div>
+      <button class="send" id="send" type="submit">Send my application 🚀</button>
+    </form>
+
+    <div class="done" id="done" hidden>
+      <div class="big">🎉</div>
+      <h2>Application sent!</h2>
+      <div>Your application number is</div>
+      <div class="no" id="done-no">FH-0000</div>
+      <p style="margin:0;font-weight:700;color:var(--muted)">The boss will read it in the Boss Office. Good luck! 🍀</p>
+      <div class="row"><button class="btn" id="again">Fill in a new form</button><button class="btn solid" id="goboss">Go to the Boss Office</button></div>
+    </div>
+  </section>
+
+  <!-- BOSS -->
+  <section id="view-boss" hidden>
+    <div class="intro"><div class="big">😎</div><div><h1>Boss Office</h1><p>Read the applications and decide: Hired, Interview or Try again.</p></div></div>
+    <div class="stats">
+      <div class="stat"><b id="s-new">0</b><span>New</span></div>
+      <div class="stat"><b id="s-interview">0</b><span>Interview</span></div>
+      <div class="stat"><b id="s-hired">0</b><span>Hired</span></div>
+      <div class="stat"><b id="s-try">0</b><span>Try again</span></div>
+    </div>
+    <div class="list" id="list"></div>
+  </section>
+</main>
+
+<script>
+(function(){
+const $ = s => document.querySelector(s);
+const AVATARS=['😀','😎','🤓','🥳','😺','🦁','🐼','🦊','🐵','🦄'];
+const JOBS=[['Pilot','✈️','Amin Airlines'],['Cabin crew','🧑‍✈️','Amin Airlines'],['Check-in agent','🛂','Amin Airlines'],['Chef','👨‍🍳','Family House'],['Waiter','🍽️','Family House'],['Cashier','💵','Family House'],['Ice cream server','🍦','Ice Cream shop'],['Metro driver','🚇','Home Metro'],['Cleaner','🧹','Everywhere'],['Boss (manager)','⭐','Everywhere']];
+const SKILLS=['Good at maths ➕','Kind to people 💛','Can draw 🎨','Can count money 💵','Fast worker ⚡','Can read out loud 📖','Good at tidying 🧹','Speak 2 languages 🗣️','Always on time ⏰','Love teamwork 🤝'];
+const EXP=['Set the table','Tidied my room','Helped cook','Helped my sister or brother','Watered the plants','Helped carry shopping'];
+const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const TIMES=['Morning 🌅','Afternoon ☀️','Evening 🌙'];
+const STATUS={new:['New','st-new'],interview:['Interview','st-interview'],hired:['Hired!','st-hired'],try:['Try again','st-try']};
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+// ---------- build form controls ----------
+$('#avatars').innerHTML = AVATARS.map((a,i)=>`<label title="${a}"><input type="radio" name="avatar" id="av-${i}" value="${a}" ${i===0?'checked':''}><span>${a}</span></label>`).join('');
+$('#jobs').innerHTML = JOBS.map((j,i)=>`<label><input type="radio" name="job" id="job-${i}" value="${esc(j[0])}"><span><i>${j[1]}</i>${esc(j[0])}<small>${esc(j[2])}</small></span></label>`).join('');
+const chips=(el,arr,name)=>{el.innerHTML=arr.map((t,i)=>`<label class="chip"><input type="checkbox" name="${name}" id="${name}-${i}" value="${esc(t)}"><span>${esc(t)}</span></label>`).join('')};
+chips($('#skills'),SKILLS,'skill'); chips($('#exp'),EXP,'exp'); chips($('#days'),DAYS,'day'); chips($('#times'),TIMES,'time');
+const today = new Date(); const iso = d => d.toISOString().slice(0,10);
+$('#f-date').value = iso(today);
+
+// ---------- drawing pad ----------
+const cv=$('#pad'), cx=cv.getContext('2d');
+let colour='#1d2a5c', size=6, erasing=false, drawn=false, drawing=false, last=null;
+function clearPad(){cx.fillStyle='#ffffff';cx.fillRect(0,0,cv.width,cv.height);drawn=false}
+clearPad();
+const COLS=['#1d2a5c','#e2574c','#1f9e8f','#e3a21a','#6d5bd0','#3d8bf2','#2c9a55','#8a5a2b'];
+$('#tools').innerHTML = COLS.map((c,i)=>`<button type="button" class="sw" id="sw-${i}" style="background:${c}" aria-label="Colour ${i+1}" aria-pressed="${i===0}"></button>`).join('')
+ + `<button type="button" class="mini" id="thin" aria-pressed="false">Thin</button><button type="button" class="mini" id="thick" aria-pressed="true">Thick</button><button type="button" class="mini" id="eraser" aria-pressed="false">Eraser</button><button type="button" class="mini" id="clear">Clear</button>`;
+COLS.forEach((c,i)=>$('#sw-'+i).addEventListener('click',()=>{colour=c;erasing=false;$('#eraser').setAttribute('aria-pressed','false');document.querySelectorAll('.sw').forEach(b=>b.setAttribute('aria-pressed',String(b.id==='sw-'+i)))}));
+$('#thin').onclick=()=>{size=3;$('#thin').setAttribute('aria-pressed','true');$('#thick').setAttribute('aria-pressed','false')};
+$('#thick').onclick=()=>{size=7;$('#thick').setAttribute('aria-pressed','true');$('#thin').setAttribute('aria-pressed','false')};
+$('#eraser').onclick=()=>{erasing=!erasing;$('#eraser').setAttribute('aria-pressed',String(erasing))};
+$('#clear').onclick=clearPad;
+const pos=e=>{const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height}};
+cv.addEventListener('pointerdown',e=>{drawing=true;last=pos(e);cv.setPointerCapture(e.pointerId);dot(last)});
+cv.addEventListener('pointermove',e=>{if(!drawing)return;const p=pos(e);cx.strokeStyle=erasing?'#ffffff':colour;cx.lineWidth=erasing?size*3:size;cx.lineCap='round';cx.lineJoin='round';cx.beginPath();cx.moveTo(last.x,last.y);cx.lineTo(p.x,p.y);cx.stroke();last=p;drawn=true});
+['pointerup','pointercancel','pointerleave'].forEach(t=>cv.addEventListener(t,()=>{drawing=false}));
+function dot(p){cx.fillStyle=erasing?'#ffffff':colour;cx.beginPath();cx.arc(p.x,p.y,(erasing?size*3:size)/2,0,Math.PI*2);cx.fill();drawn=true}
+
+// ---------- store (db, or this browser as a fallback) ----------
+let db=null, apps=[], useLocal=false;
+const LKEY='fh-jobs-apps';
+function loadLocal(){try{return JSON.parse(localStorage.getItem(LKEY)||'[]')}catch(e){return []}}
+function saveLocal(){try{localStorage.setItem(LKEY,JSON.stringify(apps))}catch(e){}}
+function note(msg){const n=$('#store-note'); if(msg){n.textContent=msg;n.hidden=false}else{n.hidden=true}}
+
+async function startStore(){
+  let d=null;
+  try{ d = window.claude && window.claude.use ? await window.claude.use('db') : null; }catch(e){ d=null; }
+  if(!d){
+    useLocal=true; apps=loadLocal().sort((a,b)=>b.createdAt-a.createdAt); render();
+    note('Applications are saved in this browser on this computer. 💾');
+    return;
+  }
+  db=d;
+  const timer=setTimeout(()=>note('Still connecting… the applications will appear in a moment.'),10000);
+  db.collection('applications').orderBy('createdAt','desc').onSnapshot(snap=>{
+    if(!snap.metadata.fromCache){clearTimeout(timer);note('')}
+    apps=snap.docs.map(s=>Object.assign({id:s.id},s.data()));
+    render();
+  },err=>{clearTimeout(timer);note('The applications could not be loaded right now. Please try again later.')});
+}
+
+// ---------- submit ----------
+const val=id=>($(id).value||'').trim();
+const checked=name=>[...document.querySelectorAll(`input[name="${name}"]:checked`)].map(i=>i.value);
+function scoreTest(t){
+  const num=s=>parseFloat(String(s).replace(/[^0-9.]/g,''));
+  let sc=0;
+  if(num(t.a1)===8)sc++;
+  if(num(t.a2)===8)sc++;
+  if(t.a3 && !/^thank\s*you$/i.test(t.a3.trim()))sc++;
+  if(/^(5|5:00|5\.00|05:00|17:00|5\s*o.?clock|five)(\s*(pm|o.?clock))?$/i.test(t.a4.trim()))sc++;
+  return sc;
+}
+function nextNo(){const max=apps.reduce((m,a)=>Math.max(m,a.no||0),0);return max+1}
+const fmtNo=n=>'FH-'+String(n).padStart(4,'0');
+
+$('#form').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const err=$('#err'); err.textContent='';
+  const name=val('#f-name'); const job=(checked('job')[0]||'');
+  if(!name){err.textContent='Please write your name in part 1.';$('#f-name').focus();return}
+  if(!job && !val('#f-other')){err.textContent='Please pick a job in part 2.';return}
+  const test={a1:val('#t1'),a2:val('#t2'),a3:val('#t3'),a4:val('#t4')};
+  const no=nextNo();
+  const app={
+    no, createdAt:Date.now(), status:'new',
+    name, avatar:checked('avatar')[0]||'😀', age:val('#f-age'), birthday:val('#f-bday'), city:val('#f-city'), colour:val('#f-colour'), words:val('#f-words'),
+    job: job||val('#f-other'), otherJob:val('#f-other'),
+    skills:checked('skill'), exp:checked('exp'), bestJob:val('#f-best'), days:checked('day'), times:checked('time'),
+    hobbies:val('#f-hobbies'), food:val('#f-food'), game:val('#f-game'), grow:val('#f-grow'),
+    why:val('#f-why'), sad:val('#f-sad'), power:val('#f-power'),
+    test, score:scoreTest(test),
+    drawing: drawn ? cv.toDataURL('image/jpeg',0.72) : '',
+    uniform:val('#f-uniform'), badge:val('#f-badge'), reference:val('#f-ref'), signature:val('#f-sign'), signDate:val('#f-date'),
+    decision:{jobGiven:'',start:'',pay:'',manager:''}
+  };
+  const btn=$('#send'); btn.disabled=true; btn.textContent='Sending…';
+  try{
+    if(useLocal){ app.id='local-'+app.createdAt; apps.unshift(app); saveLocal(); render(); }
+    else { await db.collection('applications').add(app); }
+    $('#done-no').textContent=fmtNo(no);
+    $('#form').hidden=true; $('#done').hidden=false; window.scrollTo({top:0,behavior:'smooth'});
+  }catch(x){
+    err.textContent='The application could not be sent. Check that you are signed in, then press the button again.';
+  }finally{ btn.disabled=false; btn.textContent='Send my application 🚀'; }
+});
+$('#again').onclick=()=>{ $('#form').reset(); $('#avatars input').checked=true; $('#f-date').value=iso(new Date()); clearPad(); $('#done').hidden=true; $('#form').hidden=false; window.scrollTo({top:0}); };
+$('#goboss').onclick=()=>show('boss');
+
+// ---------- tabs ----------
+function show(v){
+  $('#view-apply').hidden = v!=='apply'; $('#view-boss').hidden = v!=='boss';
+  $('#tab-apply').setAttribute('aria-selected',String(v==='apply')); $('#tab-boss').setAttribute('aria-selected',String(v==='boss'));
+  try{ if(location.hash!=='#'+v) history.replaceState(null,'','#'+v) }catch(e){}
+  window.scrollTo({top:0});
+}
+$('#tab-apply').onclick=()=>show('apply'); $('#tab-boss').onclick=()=>show('boss');
+window.addEventListener('hashchange',()=>show(location.hash==='#boss'?'boss':'apply'));
+if(location.hash==='#boss') show('boss');
+
+// ---------- boss office ----------
+let open=null, confirmDel=null, flash=null;
+function render(){
+  const c={new:0,interview:0,hired:0,try:0}; apps.forEach(a=>{c[a.status]=(c[a.status]||0)+1});
+  $('#s-new').textContent=c.new; $('#s-interview').textContent=c.interview; $('#s-hired').textContent=c.hired; $('#s-try').textContent=c.try;
+  $('#boss-count').textContent=apps.length;
+  const list=$('#list');
+  if(!apps.length){ list.innerHTML=`<div class="empty"><div class="big">📭</div>No applications yet.<br>When someone fills in the form on the <b>Apply</b> tab, it shows up here.</div>`; return; }
+  list.innerHTML = apps.map(a=>{
+    const st=STATUS[a.status]||STATUS.new; const isOpen=open===a.id;
+    const date=new Date(a.createdAt||0).toLocaleDateString(undefined,{day:'numeric',month:'short'});
+    return `<article class="app">
+      <button class="head" data-open="${esc(a.id)}" aria-expanded="${isOpen}">
+        <div class="av">${esc(a.avatar||'😀')}</div>
+        <div class="who"><b>${esc(a.name)}</b><span>${esc(fmtNo(a.no||0))} · wants to be <b style="display:inline;font:inherit;color:var(--ink)">${esc(a.job)}</b> · test ${a.score||0}/4 · ${date}</span></div>
+        <span class="pill ${st[1]}">${st[0]}</span>
+      </button>
+      ${isOpen?detail(a):''}
+    </article>`;
+  }).join('');
+}
+function kv(label,v){ return (Array.isArray(v)?v.length:v) ? `<div><dt>${label}</dt><dd>${esc(Array.isArray(v)?v.join(', '):v)}</dd></div>` : '' }
+function ans(q,v){ return v ? `<div class="ans"><b>${q}</b><p>${esc(v)}</p></div>` : '' }
+function detail(a){
+  const d=a.decision||{}; const t=a.test||{};
+  const jobOpts=['',...JOBS.map(j=>j[0])].map(j=>`<option ${d.jobGiven===j?'selected':''}>${esc(j)}</option>`).join('');
+  return `<div class="detail">
+    ${a.status==='hired'?'<div class="stamp">HIRED</div>':''}
+    <dl class="kv">${kv('Age',a.age)}${kv('Birthday',a.birthday)}${kv('Home city',a.city)}${kv('Favourite colour',a.colour)}${kv('3 words',a.words)}${kv('Skills',a.skills)}${kv('Done at home',a.exp)}${kv('Best job ever',a.bestJob)}${kv('Days',a.days)}${kv('Times',a.times)}${kv('Hobbies',a.hobbies)}${kv('Favourite food',a.food)}${kv('Favourite game',a.game)}${kv('Wants to be',a.grow)}${kv('Uniform colour',a.uniform)}${kv('Name badge',a.badge)}${kv('Reference',a.reference)}${kv('Signed',a.signature&&(a.signature+(a.signDate?' · '+a.signDate:'')))}</dl>
+    ${ans('Why do you want this job?',a.why)}${ans('If a customer is sad or angry…',a.sad)}${ans('Superpower at work',a.power)}
+    <div class="ans"><b>Skills test: ${a.score||0} out of 4</b><p>1. ${esc(t.a1||'–')} &nbsp; 2. ${esc(t.a2||'–')} &nbsp; 3. ${esc(t.a3||'–')} &nbsp; 4. ${esc(t.a4||'–')}</p></div>
+    ${a.drawing?`<div><div style="font-size:12px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">Drawing in uniform</div><img class="drawing" src="${esc(a.drawing)}" alt="Drawing by ${esc(a.name)}"></div>`:''}
+    <div class="decide">
+      <h3>🔒 Boss decision</h3>
+      <div class="choices">
+        <button type="button" class="choice c-hired" data-st="hired" data-id="${esc(a.id)}" aria-pressed="${a.status==='hired'}">🎉 Hired!</button>
+        <button type="button" class="choice c-interview" data-st="interview" data-id="${esc(a.id)}" aria-pressed="${a.status==='interview'}">📞 Interview</button>
+        <button type="button" class="choice c-try" data-st="try" data-id="${esc(a.id)}" aria-pressed="${a.status==='try'}">🙂 Try again</button>
+      </div>
+      <div class="grid2">
+        <label class="f"><span>Job given</span><select id="dj-${esc(a.id)}">${jobOpts}</select></label>
+        <label class="f"><span>Start date</span><input type="date" id="ds-${esc(a.id)}" value="${esc(d.start||'')}"></label>
+        <label class="f"><span>Pay per day ($)</span><input type="number" min="0" id="dp-${esc(a.id)}" value="${esc(d.pay||'')}" placeholder="10"></label>
+        <label class="f"><span>Manager's name</span><input type="text" maxlength="40" id="dm-${esc(a.id)}" value="${esc(d.manager||'')}" placeholder="Amin"></label>
+      </div>
+      <div class="row" style="justify-content:flex-start;align-items:center">
+        <button type="button" class="btn solid" data-save="${esc(a.id)}">Save decision</button>
+        ${flash===a.id?'<span class="saved">Saved ✓</span>':''}
+        <span style="flex:1"></span>
+        ${confirmDel===a.id
+          ? `<span style="font-weight:800">Delete this application?</span><button type="button" class="danger" data-delyes="${esc(a.id)}">Yes, delete</button><button type="button" class="mini" data-delno="1">No</button>`
+          : `<button type="button" class="danger" data-del="${esc(a.id)}">Delete</button>`}
+      </div>
+    </div>
+  </div>`;
+}
+async function patch(id,changes){
+  const a=apps.find(x=>x.id===id); if(!a)return;
+  if(useLocal){ Object.assign(a,changes); saveLocal(); render(); return; }
+  try{ await db.collection('applications').doc(id).update(changes); }
+  catch(e){ note('That change could not be saved. Check that you are signed in and try again.'); }
+}
+$('#list').addEventListener('click',async e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  if(b.dataset.open){ open = open===b.dataset.open ? null : b.dataset.open; confirmDel=null; flash=null; render(); return; }
+  if(b.dataset.st){ await patch(b.dataset.id,{status:b.dataset.st}); return; }
+  if(b.dataset.save){ const id=b.dataset.save;
+    const decision={jobGiven:$('#dj-'+CSS.escape(id)).value,start:$('#ds-'+CSS.escape(id)).value,pay:$('#dp-'+CSS.escape(id)).value,manager:$('#dm-'+CSS.escape(id)).value.trim()};
+    flash=id; await patch(id,{decision}); render(); setTimeout(()=>{if(flash===id){flash=null;render()}},2500); return; }
+  if(b.dataset.del){ confirmDel=b.dataset.del; render(); return; }
+  if(b.dataset.delno){ confirmDel=null; render(); return; }
+  if(b.dataset.delyes){ const id=b.dataset.delyes; confirmDel=null; open=null;
+    if(useLocal){ apps=apps.filter(x=>x.id!==id); saveLocal(); render(); }
+    else { try{ await db.collection('applications').doc(id).delete(); }catch(x){ note('That application could not be deleted right now.'); } }
+    return; }
+});
+
+render();
+startStore();
+})();
+</script>
+</body></html>
